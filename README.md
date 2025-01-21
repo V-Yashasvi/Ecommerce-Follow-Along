@@ -10,3 +10,22 @@ E-Commerce Application, a fully functional online shopping platform built using 
 
 ## Summmary:
 The E-Commerce Application is a full-stack web application designed to facilitate smooth and secure online shopping. This project demonstrates a comprehensive understanding of modern software development, focusing on scalability, performance optimization, and best practices in web and database design.
+
+
+### Milestone 1 Update:
+- Created repository for the project 
+- Added readme file
+
+### Milestone 2 Update:
+- Set up React app for Frontend and Node js for backend
+- Created a login page and styled using tailwind css
+
+### Milestone 3 Update:
+- Configured the server
+- Integrated MongoDB
+- Configured the connection between server and mongoBD
+
+### Milestone 4 Update:
+- Created user Model
+- Created user Controller
+- Set up Multer for file uploads
