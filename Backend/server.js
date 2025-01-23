@@ -1,9 +1,14 @@
 const express=require('express')
 const mongoose=require('mongoose')
-const { userModel } = require('./module/user.module')
+const { UserModel } = require('./module/user.module')
 const multer=require('multer')
 const app=express()
 const PORT=8084
+const bcrypt=require('bcryptjs')
+
+const cors = require('cors');
+app.use(cors());
+
 
 app.use(express.json())
 
@@ -44,13 +49,34 @@ app.post('/create',async(req,res)=>{
     let payload=req.body
     console.log(payload)
     try{
-        let new_user=new userModel(payload);
+        let new_user=new UserModel(payload);
         await new_user.save();
         res.send({"message":"Hurray! Successfully saved the user to the database"})
     }
     catch(error){
         console.log(error);
         res.send({"error":error})
+    }
+})
+app.post('/signup', async(req, res)=>{
+    console.log(req.body)
+    const {name, email, password}=req.body;
+    const userPresent=await UserModel.findOne({email})
+    if(userPresent?.email){
+        res.send("Try loggin in, already exist")
+    }
+    else{
+        try{
+            bcrypt.hash(password, 4, async function(err,hash){
+                const user= new UserModel({name,email,password:hash})
+                await user.save();
+                res.send("Signup successful")
+            });
+        }
+        catch(err){
+            console.log(err);
+            res.send("Something went wrong, please try again later")
+        }
     }
 })
 
