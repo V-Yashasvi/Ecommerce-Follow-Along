@@ -6,6 +6,10 @@ const app=express()
 const PORT=8084
 const bcrypt=require('bcryptjs')
 
+const cors = require('cors');
+app.use(cors());
+
+
 app.use(express.json())
 
 let mongoURL="mongodb+srv://VYashasvi:Anurams2262@yashasvi.scepo.mongodb.net/EcomDB"
@@ -41,19 +45,19 @@ app.post("/upload",upload.single("myFile"),(req,res)=>{
         res.send({error:"error"})
     }
 })
-// app.post('/create',async(req,res)=>{
-//     let payload=req.body
-//     console.log(payload)
-//     try{
-//         let new_user=new userModel(payload);
-//         await new_user.save();
-//         res.send({"message":"Hurray! Successfully saved the user to the database"})
-//     }
-//     catch(error){
-//         console.log(error);
-//         res.send({"error":error})
-//     }
-// })
+app.post('/create',async(req,res)=>{
+    let payload=req.body
+    console.log(payload)
+    try{
+        let new_user=new UserModel(payload);
+        await new_user.save();
+        res.send({"message":"Hurray! Successfully saved the user to the database"})
+    }
+    catch(error){
+        console.log(error);
+        res.send({"error":error})
+    }
+})
 app.post('/signup', async(req, res)=>{
     console.log(req.body)
     const {name, email, password}=req.body;
