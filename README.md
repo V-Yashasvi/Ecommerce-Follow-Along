@@ -29,3 +29,8 @@ The E-Commerce Application is a full-stack web application designed to facilitat
 - Created user Model
 - Created user Controller
 - Set up Multer for file uploads
+
+### Milestone 5 Update:
+- Created a sign-up page where users can enter their details to create an account
+- Added Form Validation to ensure a valid email and password is entered
+- Styled using Tailwind css
