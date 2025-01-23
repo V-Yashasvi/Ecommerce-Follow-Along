@@ -34,3 +34,7 @@ The E-Commerce Application is a full-stack web application designed to facilitat
 - Created a sign-up page where users can enter their details to create an account
 - Added Form Validation to ensure a valid email and password is entered
 - Styled using Tailwind css
+
+### Milestone 6 Update:
+- Added Encryption to user password 
+- Verified that the password is encrypted in mongoDb
