@@ -38,3 +38,8 @@ The E-Commerce Application is a full-stack web application designed to facilitat
 ### Milestone 6 Update:
 - Added Encryption to user password 
 - Verified that the password is encrypted in mongoDb
+
+### Milestone 7 Update:
+- Created Login endpoint
+- Validated Password
+
