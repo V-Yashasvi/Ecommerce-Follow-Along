@@ -91,7 +91,7 @@ const ProductForm = () => {
           value="Add product"
           className="ml-40 bg-blue-600 text-white py-2 px-4 rounded-lg"
         />
-      </form>
+      </form>   
     </div>
   );
 };

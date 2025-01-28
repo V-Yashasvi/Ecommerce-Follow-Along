@@ -1,126 +1,126 @@
 [
     {
-        "name": "Product 1",
+        "name": "Heels",
         "price": 19.99,
         "imageUrl": "https://images.unsplash.com/photo-1734834845352-47f87834d026?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDM0fFM0TUtMQXNCQjc0fHxlbnwwfHx8fHw%3D"
     },
     {
-        "name": "Product 2",
+        "name": "Lipstick",
         "price": 29.99,
         "imageUrl": "https://images.unsplash.com/photo-1618510069246-21f564373621?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDJ8UzRNS0xBc0JCNzR8fGVufDB8fHx8fA%3D%3D"
     },
     {
-        "name": "Product 3",
+        "name": "Sports Cap",
         "price": 14.99,
         "imageUrl": "https://images.unsplash.com/photo-1611265023526-707d240623af?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDEwNnxTNE1LTEFzQkI3NHx8ZW58MHx8fHx8"
     },
     {
-        "name": "Product 4",
+        "name": "Shirt",
         "price": 49.99,
         "imageUrl": "https://images.unsplash.com/photo-1735945205189-ead34d91cf69?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDZ8UzRNS0xBc0JCNzR8fGVufDB8fHx8fA%3D%3D"
     },
     {
-        "name": "Product 5",
+        "name": "Neck Piece",
         "price": 9.99,
         "imageUrl": "https://images.unsplash.com/photo-1736938204652-eb5bc2f72b83?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDI3fFM0TUtMQXNCQjc0fHxlbnwwfHx8fHw%3D"
     },
     {
-        "name": "Product 6",
+        "name": "Rings set",
         "price": 39.99,
         "imageUrl": "https://images.unsplash.com/photo-1736154577794-65871df026ea?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQwfFM0TUtMQXNCQjc0fHxlbnwwfHx8fHw%3D"
     },
     {
-        "name": "Product 7",
+        "name": "Skincare set",
         "price": 24.99,
         "imageUrl": "https://images.unsplash.com/photo-1735779411146-a2a6ce587cbb?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDU3fFM0TUtMQXNCQjc0fHxlbnwwfHx8fHw%3D"
     },
     {
-        "name": "Product 8",
+        "name": "Silver Earrings",
         "price": 12.99,
         "imageUrl": "https://images.unsplash.com/photo-1735816415206-e971124e0336?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDU5fFM0TUtMQXNCQjc0fHxlbnwwfHx8fHw%3D"
     },
     {
-        "name": "Product 9",
+        "name": "Cologne",
         "price": 59.99,
         "imageUrl": "https://images.unsplash.com/photo-1734779756374-e043fed62c08?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDY2fFM0TUtMQXNCQjc0fHxlbnwwfHx8fHw%3D"
     },
     {
-        "name": "Product 10",
+        "name": "Handbag",
         "price": 7.99,
         "imageUrl": "https://images.unsplash.com/photo-1733683321694-458cefa326f7?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDc1fFM0TUtMQXNCQjc0fHxlbnwwfHx8fHw%3D"
     },
     {
-        "name": "Product 11",
+        "name": "Perfume",
         "price": 34.99,
         "imageUrl": "https://images.unsplash.com/photo-1733660227168-444e3c751a1e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDg5fFM0TUtMQXNCQjc0fHxlbnwwfHx8fHw%3D"
     },
     {
-        "name": "Product 12",
+        "name": "Cateye Glasses",
         "price": 17.99,
         "imageUrl": "https://images.unsplash.com/photo-1599137936830-6b98fef428e8?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDEwNXxTNE1LTEFzQkI3NHx8ZW58MHx8fHx8"
     },
     {
-        "name": "Product 13",
+        "name": "Formal Jacket",
         "price": 44.99,
         "imageUrl": "https://images.unsplash.com/photo-1731484395148-b1d7f2af7d54?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDEyN3xTNE1LTEFzQkI3NHx8ZW58MHx8fHx8"
     },
     {
-        "name": "Product 14",
+        "name": "Formal Shoes",
         "price": 6.99,
         "imageUrl": "https://plus.unsplash.com/premium_photo-1726837401906-0fc59d7a59f7?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDEzNnxTNE1LTEFzQkI3NHx8ZW58MHx8fHx8"
     },
     {
-        "name": "Product 15",
+        "name": "Black Pendant",
         "price": 22.99,
         "imageUrl": "https://images.unsplash.com/photo-1731085819151-c59cd8c27098?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDE0M3xTNE1LTEFzQkI3NHx8ZW58MHx8fHx8"
     },
     {
-        "name": "Product 16",
+        "name": "Gold earrings",
         "price": 54.99,
         "imageUrl": "https://images.unsplash.com/photo-1727791865934-5a72e29f5345?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDI0OXxTNE1LTEFzQkI3NHx8ZW58MHx8fHx8"
     },
     {
-        "name": "Product 17",
+        "name": "Winter Cap",
         "price": 10.99,
         "imageUrl": "https://images.unsplash.com/photo-1719518870616-8deacda7e18b?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDI2M3xTNE1LTEFzQkI3NHx8ZW58MHx8fHx8"
     },
     {
-        "name": "Product 18",
+        "name": "White Shoes",
         "price": 32.99,
         "imageUrl": "https://images.unsplash.com/photo-1727061180294-ae2c6511eb63?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDI1N3xTNE1LTEFzQkI3NHx8ZW58MHx8fHx8"
     },
     {
-        "name": "Product 19",
+        "name": "Pearl Chain",
         "price": 15.99,
         "imageUrl": "https://images.unsplash.com/photo-1650785468226-e415afc2bd9e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDI5N3xTNE1LTEFzQkI3NHx8ZW58MHx8fHx8"
     },
     {
-        "name": "Product 20",
+        "name": "Long boots",
         "price": 42.99,
         "imageUrl": "https://images.unsplash.com/photo-1578847945588-d6c83689e3d2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDI3M3xTNE1LTEFzQkI3NHx8ZW58MHx8fHx8"
     },
     {
-        "name": "Product 21",
+        "name": "GOld rings",
         "price": 8.99,
         "imageUrl": "https://images.unsplash.com/photo-1727791721705-28906f1222ae?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDIzOXxTNE1LTEFzQkI3NHx8ZW58MHx8fHx8"
     },
     {
-        "name": "Product 22",
+        "name": "Diamond ring",
         "price": 28.99,
         "imageUrl": "https://images.unsplash.com/photo-1728405034666-c8d60628882d?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDIyMXxTNE1LTEFzQkI3NHx8ZW58MHx8fHx8"
     },
     {
-        "name": "Product 23",
+        "name": "Stone earrings",
         "price": 13.99,
         "imageUrl": "https://images.unsplash.com/photo-1714700513036-558227ceabc4?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDIxMHxTNE1LTEFzQkI3NHx8ZW58MHx8fHx8"
     },
     {
-        "name": "Product 24",
+        "name": "Black and White Shoes",
         "price": 52.99,
         "imageUrl": "https://images.unsplash.com/photo-1728724794795-681832a6afd0?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDIwN3xTNE1LTEFzQkI3NHx8ZW58MHx8fHx8"
     },
     {
-        "name": "Product 25",
+        "name": "Flower earrings",
         "price": 11.99,
         "imageUrl": "https://images.unsplash.com/photo-1729877251614-a27487f0e050?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDE3MnxTNE1LTEFzQkI3NHx8ZW58MHx8fHx8"
     }
