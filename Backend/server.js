@@ -5,11 +5,10 @@ const multer=require('multer')
 const app=express()
 const PORT=8084
 const bcrypt=require('bcryptjs')
-
+const jwt = require("jsonwebtoken")
+require("dotenv").config();
 const cors = require('cors');
 app.use(cors());
-
-
 app.use(express.json())
 
 let mongoURL="mongodb+srv://VYashasvi:Anurams2262@yashasvi.scepo.mongodb.net/EcomDB"
@@ -35,7 +34,6 @@ const storage=multer.diskStorage({
 });
 
 const upload=multer({storage:storage});
-
 app.post("/upload",upload.single("myFile"),(req,res)=>{
     try{
         console.log(req.file)
@@ -45,6 +43,7 @@ app.post("/upload",upload.single("myFile"),(req,res)=>{
         res.send({error:"error"})
     }
 })
+
 app.post('/create',async(req,res)=>{
     let payload=req.body
     console.log(payload)
@@ -58,6 +57,7 @@ app.post('/create',async(req,res)=>{
         res.send({"error":error})
     }
 })
+
 app.post('/signup', async(req, res)=>{
     console.log(req.body)
     const {name, email, password}=req.body;
@@ -77,6 +77,29 @@ app.post('/signup', async(req, res)=>{
             console.log(err);
             res.send("Something went wrong, please try again later")
         }
+    }
+})
+
+app.post("/login",async(req,res)=>{
+    const {email,password}= req.body;
+    try{
+        let user=await UserModel.find({email});
+        console.log(user,password);
+        if (user.length>0){
+            let hasPassword= user[0].password;
+            bcrypt.compare(password,hasPassword,function(err,result){
+                if(result){
+                    let token=jwt.sign({"userID": user[0]._id},process.env.SECRET_KEY);
+                    res.send({"msg":"Login successfully","token":token})
+                } else{
+                    res.send({"message":"Invalid "})
+                }
+            })
+        }else{
+            res.send({'msg':"login Failed! Pls Sign-up first!"})
+        }
+    }catch(err){
+        console.log("error", err)
     }
 })
 
