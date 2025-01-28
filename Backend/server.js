@@ -8,6 +8,7 @@ const bcrypt=require('bcryptjs')
 const jwt = require("jsonwebtoken")
 require("dotenv").config();
 const cors = require('cors');
+const { productRouter } = require('./routes/product.route')
 app.use(cors());
 app.use(express.json())
 
@@ -102,6 +103,9 @@ app.post("/login",async(req,res)=>{
         console.log("error", err)
     }
 })
+
+app.use('/product', productRouter)
+
 
 app.listen(PORT,async()=>{
     try{
