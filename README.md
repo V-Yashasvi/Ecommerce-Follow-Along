@@ -43,3 +43,10 @@ The E-Commerce Application is a full-stack web application designed to facilitat
 - Created Login endpoint
 - Validated Password
 
+### Milestone 8 Update:
+- Created Cart Component
+- Set a grid layout to display products
+
+### Milestone 9 Update:
+- Created a form for products
+- The form will take multiple inputs like name, description, price and images.
