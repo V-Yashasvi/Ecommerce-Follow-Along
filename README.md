@@ -50,3 +50,7 @@ The E-Commerce Application is a full-stack web application designed to facilitat
 ### Milestone 9 Update:
 - Created a form for products
 - The form will take multiple inputs like name, description, price and images.
+
+### Milestone 10 Update:
+- Created Endpoint for post request.
+- Validated and saced Product details to mongoDB.
