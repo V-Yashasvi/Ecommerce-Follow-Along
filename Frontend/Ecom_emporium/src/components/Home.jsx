@@ -1,9 +1,23 @@
 // import React from 'react'
-import productData from './data.json'
+// import productData from './data.json'
 import Cart from './Cart';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 const Home = () => {
+  let [productData, setProductData]=useState([])
+
+  useEffect(()=>{
+    fetch("http://localhost:8084/product").then((res)=>{
+      return res.json();
+    }).then((res)=>{
+      console.log(res)
+      setProductData(res.data)
+    }).catch((err)=>{
+      console.log(err)
+    })
+  },[])
+
   return (
     <div>
       <nav className="flex justify-end p-8 bg-blue-400 text-white">
