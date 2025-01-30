@@ -11,9 +11,8 @@ const cors = require('cors');
 const { productRouter } = require('./routes/product.route')
 app.use(cors());
 app.use(express.json())
-
-let mongoURL="mongodb+srv://VYashasvi:Anurams2262@yashasvi.scepo.mongodb.net/EcomDB"
-let connection=mongoose.connect(mongoURL);
+let url=process.env.mongoURL
+let connection=mongoose.connect(url);
 
 app.get('/ping',(req,res)=>{
     console.log(req)

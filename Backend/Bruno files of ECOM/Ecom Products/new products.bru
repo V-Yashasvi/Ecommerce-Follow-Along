@@ -1,0 +1,18 @@
+meta {
+  name: new products
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8084/product/create
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  productName: asdfgh
+  productDescription: asdfghjkasdfghasdfghasdfjasdfghjkasdfghjASDFGHASFGHJDFGHJ
+  productPrice: asdfghjkl
+  productImage: @file(C:\Users\vyash\OneDrive\Pictures\Screenshots\C++ 2.png|C:\Users\vyash\OneDrive\Pictures\Screenshots\C++ 3.png|C:\Users\vyash\OneDrive\Pictures\Screenshots\C++ 4.png|C:\Users\vyash\OneDrive\Pictures\Screenshots\C++ 5.png)
+}
