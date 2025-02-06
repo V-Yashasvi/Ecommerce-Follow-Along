@@ -13,6 +13,15 @@ productRouter.get('/',async(req, res)=>{
         res.send({"error message":error})
     }
 })
+productRouter.get('/:id',async(req, res)=>{
+    const id=req.params.id
+    try {
+        const product=await productModel.findById(id)
+        res.send({"message":"Successfully recieved the data from database", data:product})
+    } catch (error) {
+        res.send({"error message":error})
+    }
+})
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
