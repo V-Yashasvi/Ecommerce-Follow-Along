@@ -9,8 +9,10 @@ const jwt = require("jsonwebtoken")
 require("dotenv").config();
 const cors = require('cors');
 const { productRouter } = require('./routes/product.route')
+const authenticate = require('./middleware/authenticate')
 app.use(cors());
 app.use(express.json())
+// app.use(authenticate)
 let url=process.env.mongoURL
 let connection=mongoose.connect(url);
 
@@ -90,7 +92,7 @@ app.post("/login",async(req,res)=>{
             bcrypt.compare(password,hasPassword,function(err,result){
                 if(result){
                     let token=jwt.sign({"userID": user[0]._id},process.env.SECRET_KEY);
-                    res.send({"msg":"Login successfully","token":token})
+                    res.send({"msg":"Login successfully","token":token,email})
                 } else{
                     res.send({"message":"Invalid "})
                 }
