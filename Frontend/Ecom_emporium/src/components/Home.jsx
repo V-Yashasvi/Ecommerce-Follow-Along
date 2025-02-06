@@ -3,6 +3,7 @@
 import Cart from './Cart';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import axios from "axios";
 
 const Home = () => {
   let [productData, setProductData]=useState([])
@@ -17,6 +18,19 @@ const Home = () => {
       console.log(err)
     })
   },[])
+
+  const handleDelete = async (id) => {
+    try {
+      let response = await axios.delete(
+        `http://localhost:8084/product/delete/${id}`
+      );
+      console.log(response.data.message);
+      const filtered_data = productData.filter((e) => e._id != id);
+      setProductData(filtered_data)
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div>
@@ -34,7 +48,7 @@ const Home = () => {
 
       <div className="container ml-20 mx-auto mt-8 px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {productData.map((product, index) => (
-          <Cart key={index} product={product} />
+          <Cart key={index} product={product} handleDelete={handleDelete} />
         ))}
       </div>
     </div>

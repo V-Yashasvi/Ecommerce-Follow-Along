@@ -4,7 +4,6 @@ const path=require('path');
 const { productModel } = require('../module/product.module');
 let productRouter=express.Router();
 
-
 productRouter.get('/',async(req, res)=>{
     try {
         const products=await productModel.find()
@@ -22,7 +21,18 @@ productRouter.get('/:id',async(req, res)=>{
         res.send({"error message":error})
     }
 })
-
+productRouter.delete('/delete/:id', async(req, res)=>{
+    const {id}=req.params
+    try {
+        deleted_product=await productModel.findByIdAndDelete(id)
+        if (!deleted_product){
+            return res.status(404).json({"message":"Product not found"})
+        }
+        res.status(200).json({"message":"Successfully deleted the product"})
+    } catch (error) {
+        res.status(500).json({"error":error.message})
+    }
+})
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, '././uploads')
@@ -32,9 +42,7 @@ const storage = multer.diskStorage({
         cb(null, file.fieldname + '-' + uniqueSuffix+ path.extname(file.originalname))
     }
 })
-
 const upload = multer({ storage: storage })
-
 productRouter.post('/create',upload.array('productImage', 12),async(req, res)=>{
     try {
         const { productName, productDescription, productPrice } = req.body;
@@ -47,7 +55,6 @@ productRouter.post('/create',upload.array('productImage', 12),async(req, res)=>{
             productPrice,
             productImages:imgPath
         })
-
         await newProduct.save();
         res.json({"message":"Hurray! Product added to the database successfully", "product":newProduct})
     } catch (error) {
@@ -55,5 +62,4 @@ productRouter.post('/create',upload.array('productImage', 12),async(req, res)=>{
         res.send({error})
     }
 })
-
 module.exports={productRouter}
