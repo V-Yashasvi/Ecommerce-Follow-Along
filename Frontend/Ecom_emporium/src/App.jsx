@@ -7,6 +7,7 @@ import SignUp from './components/SignUp'
 import { Route, Routes } from 'react-router-dom'
 import ProductForm from './components/ProductForm'
 import EditProducts from './components/EditProducts'
+import Cart from './components/Card'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Route path='/signup' element={<SignUp/>}></Route>
         <Route path='/add-product' element={<ProductForm/>}></Route>
         <Route path='/edit-product/:id' element={<EditProducts/>}></Route>
+        <Route path='/cart' element={<Cart/>}></Route>
       </Routes>
       {/* <ProductForm></ProductForm> */}
     </>
