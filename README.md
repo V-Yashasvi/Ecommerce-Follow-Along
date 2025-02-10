@@ -66,3 +66,10 @@ The E-Commerce Application is a full-stack web application designed to facilitat
 - Updated existing data in mongoDB
 - Auto fill the form with previous data
 - Adding edit option
+
+### Milestone 14 Update:
+- Added Delete product functionality
+
+### Milestone 15 Update:
+- Added Navbar component
+- Added navigation through Navbar
