@@ -1,7 +1,9 @@
 const express= require('express')
 const multer=require('multer')
 const path=require('path');
-const { productModel } = require('../module/product.module');
+const {UserModel}=require('../module/user.module')
+const {productModel} = require('../module/product.module');
+const {CartModel}=require('../module/cart.module')
 let productRouter=express.Router();
 
 productRouter.get('/',async(req, res)=>{
@@ -62,4 +64,39 @@ productRouter.post('/create',upload.array('productImage', 12),async(req, res)=>{
         res.send({error})
     }
 })
+
+productRouter.post('/cart/add', async (req, res) => {
+    try {
+        const { userId, productId, quantity } = req.body;
+        const user = await UserModel.findById(userId);
+        const product = await productModel.findById(productId);
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+        if (!product) {
+            return res.status(404).json({ message: "Product not found" });
+        }
+        const productPrice = parseFloat(product.productPrice);
+        const totalPrice = productPrice * quantity;
+        let cartItem = await CartModel.findOne({ user: userId, product: productId });
+        if (cartItem) {
+            cartItem.quantity += quantity;
+            cartItem.totalPrice += totalPrice;
+        } else {
+            cartItem = new CartModel({
+                user: userId,
+                product: productId,
+                quantity,
+                totalPrice
+            });
+            user.cart.push(cartItem._id);
+        }
+        await cartItem.save();
+        await user.save();
+        res.status(200).json({ message: "Product added to cart", cart: cartItem });
+    } catch (error) {
+        res.status(500).json({ message: "Internal Server Error", error: error.message });
+    }
+});
+
 module.exports={productRouter}
