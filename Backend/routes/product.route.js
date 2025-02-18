@@ -99,4 +99,28 @@ productRouter.post('/cart/add', async (req, res) => {
     }
 });
 
+productRouter.get('/cart/:userId', async (req, res) => {
+    try {
+        const { userId } = req.params;
+        const user = await UserModel.findById(userId).populate({
+            path: 'cart',
+            populate: {
+                path: 'product',
+                model: 'productCollection'
+            }
+        });
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+        res.status(200).json({
+            message: "Cart items fetched successfully",
+            cart: user.cart
+        });
+    } catch (error) {
+        res.status(500).json({ message: "Internal Server Error", error: error.message });
+    }
+});
+
+
+
 module.exports={productRouter}
