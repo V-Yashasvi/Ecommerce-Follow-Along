@@ -7,9 +7,9 @@ const PORT=8084
 const bcrypt=require('bcryptjs')
 const jwt = require("jsonwebtoken")
 require("dotenv").config();
-const cors = require('cors');
 const { productRouter } = require('./routes/product.route')
 const authenticate = require('./middleware/authenticate')
+const cors = require("cors");
 app.use(cors());
 app.use(express.json())
 // app.use(authenticate)
@@ -91,7 +91,7 @@ app.post("/login",async(req,res)=>{
             let hasPassword= user[0].password;
             bcrypt.compare(password,hasPassword,function(err,result){
                 if(result){
-                    let token=jwt.sign({"userID": user[0]._id},process.env.SECRET_KEY);
+                    let token=jwt.sign({"userID": user[0]._id,"email":user[0].email},process.env.SECRET_KEY);
                     res.send({"msg":"Login successfully","token":token,email})
                 } else{
                     res.send({"message":"Invalid "})
