@@ -6,7 +6,7 @@ import { Route, Routes } from 'react-router-dom'
 import ProductForm from './components/ProductForm'
 import EditProducts from './components/EditProducts'
 import ProductDetailsPage from './components/ProductDetailsPage'
-import Cart from './components/Card'
+import Cart from './components/Cart'
 
 function App() {
   const [cart, setCart]=useState([])

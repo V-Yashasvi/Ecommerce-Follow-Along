@@ -20,11 +20,11 @@ const Navbar = () => {
             <Link to={"/add-product"}>Add Product</Link>
         </button>
         <button className="px-6 py-2 mx-2 text-lg font-semibold border-2 rounded-lg">
-            <Link Link to={"/cart"}>Cart</Link>
+            <Link to={"/cart"}>Cart</Link>
         </button>
         </nav>
     </div>
-    );
+    );  
 }
 
 export default Navbar
