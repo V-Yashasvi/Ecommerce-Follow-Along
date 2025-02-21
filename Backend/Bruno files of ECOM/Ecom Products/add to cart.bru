@@ -6,6 +6,15 @@ meta {
 
 post {
   url: http://localhost:8084/product/cart/add
-  body: none
+  body: json
   auth: none
+}
+
+body:json {
+  {
+      "userId": "67b5b9ee02ecb67b22616daf",
+      "productId": "67b4e50215cb0dccc2a6d827",
+      "quantity": 5
+  }
+  
 }
