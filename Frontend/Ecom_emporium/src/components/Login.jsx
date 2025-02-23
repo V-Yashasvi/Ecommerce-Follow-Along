@@ -1,6 +1,8 @@
 import {useState} from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate=useNavigate();
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -35,7 +37,9 @@ const Login = () => {
     }).then((res)=>res.json())
     .then((res)=>{
       console.log(res);
-      localStorage.setItem("Token",res.token)
+      localStorage.setItem("Token",res.token);
+      alert("LOGIN SUCCESSFULLLL!!!");
+      navigate("/")
     }).catch(err=>console.log(err))
   };
   return (
