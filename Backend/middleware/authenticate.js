@@ -4,11 +4,11 @@ dotenv.config()
 
 const authenticate=(req, res, next)=>{
     const token= req.headers?.authorization?.split(" ")[1];
-    console.log(req.headers,token,"n")
+    // console.log(req.headers,token,"n")
     if(token){
         const decoded=jwt.verify(token, process.env.SECRET_KEY);
         if(decoded){
-            console.log(decoded)
+            // console.log(decoded)
             let userID=decoded.userID;
             let email=decoded.email;
             req.body.id=userID;

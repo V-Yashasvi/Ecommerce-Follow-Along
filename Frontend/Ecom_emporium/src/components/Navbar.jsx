@@ -22,6 +22,9 @@ const Navbar = () => {
         <button className="px-6 py-2 mx-2 text-lg font-semibold border-2 rounded-lg">
             <Link to={"/cart"}>Cart</Link>
         </button>
+        <button className="px-6 py-2 mx-2 text-lg font-semibold border-2 rounded-lg">
+            <Link to={"/profile"}>Profile</Link>
+        </button>
         </nav>
     </div>
     );  
