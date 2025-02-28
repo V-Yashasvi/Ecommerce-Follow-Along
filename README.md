@@ -73,3 +73,40 @@ The E-Commerce Application is a full-stack web application designed to facilitat
 ### Milestone 15 Update:
 - Added Navbar component
 - Added navigation through Navbar
+
+### Milestone 16 Update:
+- Added new page to display each product.
+- Added quantity and add to card button.
+- 
+### Milestone 17 Update:
+- Edited the user schema to store cart products .
+- Added an end point to receive the product details and store in database.
+
+### Milestone 18 Update:
+- Created an endpoint to receive request from cart page.
+- Created a backend endpoint to fetch all the products inside cart with user mail.
+
+### Milestone 19 Update:
+- Created a cart page that display the products inside cart 
+- For each product added an option to increase and decrease quantity
+- Added an endpoint to increase and decrease the quantity
+  
+### Milestone 20 Update:
+- Created a backend endpoint that will send all the user data using mail.
+- Created a frontend profile page that will display all the user data
+- Displayed profile photo, name, mail and addresses.
+  
+### Milestone 21 Update:
+- Created address form frontend page
+- Created a state that will store input address
+- When clicked on add address in profile it navigates to form page.
+  
+### Milestone 22 Update:
+- Created a backend endpoint that will store the address inside user profile in database.
+
+### Milestone 23 Update:
+- Added a button inside cart called "Place order"
+- Created a select address page where all the address are displayed and asked to select delivery address.
+- Created mongoose schema for storing orders details.
+
+
