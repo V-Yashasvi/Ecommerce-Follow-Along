@@ -109,4 +109,29 @@ The E-Commerce Application is a full-stack web application designed to facilitat
 - Created a select address page where all the address are displayed and asked to select delivery address.
 - Created mongoose schema for storing orders details.
 
+### Milestone 24 Update:
+- Created an order confirmation page that
+  - Displayed all products that are being ordered
+  - Displayed the address user selected to deliver
+  - Displayed the total value of the cart
 
+### Milestone 25 Update:
+- Created an endpoint that will receive the products, user, address details
+- Got the mail of the user and using that retrieved the _id of the user
+- Used order schema created earlier to store order details in mongodb order collection
+
+### Milestone 26 Update:
+- Created an endpoint that will receive the user mail
+- Using the user _id got all the orders of that user
+- Sent all the users orders in the response.
+
+### Milestone 27 Update:
+- Create a my-orders page
+- Created a get request to my-orders endpoint.
+- Displayed all the user orders
+- Added my-orders page in navbar for better navigation.
+
+### Milestone 28 Update:
+- Added a cancel order button in my-orders page
+- Created an endpoint that will receive the order-id
+- Got the order using user id and marked the status cancelled and saved
