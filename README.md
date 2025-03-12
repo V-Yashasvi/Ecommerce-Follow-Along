@@ -66,3 +66,72 @@ The E-Commerce Application is a full-stack web application designed to facilitat
 - Updated existing data in mongoDB
 - Auto fill the form with previous data
 - Adding edit option
+
+### Milestone 14 Update:
+- Added Delete product functionality
+
+### Milestone 15 Update:
+- Added Navbar component
+- Added navigation through Navbar
+
+### Milestone 16 Update:
+- Added new page to display each product.
+- Added quantity and add to card button.
+- 
+### Milestone 17 Update:
+- Edited the user schema to store cart products .
+- Added an end point to receive the product details and store in database.
+
+### Milestone 18 Update:
+- Created an endpoint to receive request from cart page.
+- Created a backend endpoint to fetch all the products inside cart with user mail.
+
+### Milestone 19 Update:
+- Created a cart page that display the products inside cart 
+- For each product added an option to increase and decrease quantity
+- Added an endpoint to increase and decrease the quantity
+  
+### Milestone 20 Update:
+- Created a backend endpoint that will send all the user data using mail.
+- Created a frontend profile page that will display all the user data
+- Displayed profile photo, name, mail and addresses.
+  
+### Milestone 21 Update:
+- Created address form frontend page
+- Created a state that will store input address
+- When clicked on add address in profile it navigates to form page.
+  
+### Milestone 22 Update:
+- Created a backend endpoint that will store the address inside user profile in database.
+
+### Milestone 23 Update:
+- Added a button inside cart called "Place order"
+- Created a select address page where all the address are displayed and asked to select delivery address.
+- Created mongoose schema for storing orders details.
+
+### Milestone 24 Update:
+- Created an order confirmation page that
+  - Displayed all products that are being ordered
+  - Displayed the address user selected to deliver
+  - Displayed the total value of the cart
+
+### Milestone 25 Update:
+- Created an endpoint that will receive the products, user, address details
+- Got the mail of the user and using that retrieved the _id of the user
+- Used order schema created earlier to store order details in mongodb order collection
+
+### Milestone 26 Update:
+- Created an endpoint that will receive the user mail
+- Using the user _id got all the orders of that user
+- Sent all the users orders in the response.
+
+### Milestone 27 Update:
+- Create a my-orders page
+- Created a get request to my-orders endpoint.
+- Displayed all the user orders
+- Added my-orders page in navbar for better navigation.
+
+### Milestone 28 Update:
+- Added a cancel order button in my-orders page
+- Created an endpoint that will receive the order-id
+- Got the order using user id and marked the status cancelled and saved
