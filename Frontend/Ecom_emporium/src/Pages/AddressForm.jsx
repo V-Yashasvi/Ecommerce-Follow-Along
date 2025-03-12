@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const AddressForm = () => {
-
+    const navigate=useNavigate()
     const [country, setCountry] = useState("");
     const [city, setCity] = useState("");
     const [address1, setAddress1] = useState("");
     const [address2, setAddress2] = useState("");
-    const [zipCode, setZipCode] = useState("");
+    const [zip, setZip] = useState("");
     const [addressType, setAddressType] = useState("Home");
     
     const handleCountryChange = (event) => {
@@ -26,22 +27,50 @@ const AddressForm = () => {
     };
 
     const handleZipCodeChange = (event) => {
-      setZipCode(event.target.value);
+      setZip(event.target.value);
     };
 
     const handleAddressTypeChange = (event) => {
       setAddressType(event.target.value);
     };
 
-    const handleSubmit=(e)=>{
-        e.preventDefault();
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      const token = localStorage.getItem("Token"); 
+      if (!token) {
+        alert("You need to log in first!");
+        return;
+      }
+      const addressData = {
+        country,
+        city,
+        address1,
+        address2,
+        zip,
+        addressType,
+      };
+      try {
+        const response = await fetch("http://localhost:8084/user/add-address", {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(addressData),
+        })
+        const data = await response.json();
+        if (response.ok) {
+          alert("Address added successfully!");
+          navigate('/profile')
+        } else {
+          alert(data.message);
+        }
+      } catch (error) {
+        console.error("Error adding address:", error);
+        alert("Something went wrong.");
+      }
+    };
 
-        let data={
-            country,city,address1,address2,zipCode,addressType
-        };
-
-        
-    }
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
@@ -126,7 +155,7 @@ const AddressForm = () => {
             <input
               type="number"
               placeholder="Enter your PIN Code"
-              value={zipCode}
+              value={zip}
               onChange={handleZipCodeChange}
               id="zipCode"
               className="mt-1 p-2 w-full border rounded-md"

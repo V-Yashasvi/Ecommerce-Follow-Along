@@ -1,0 +1,39 @@
+meta {
+  name: order placing
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8084/orders/place
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2N2M3NWE1ZmEzM2FkOGE1YTdhN2EyMDIiLCJlbWFpbCI6Inlhc2hhc3ZpQGdtYWlsLmNvbSIsImlhdCI6MTc0MTY3Mzk4Nn0.c2GXz0gXYYwdEgqRPp4aqYUvBywZI5ewRH2FO56G_uU
+}
+
+body:json {
+  {
+      "email": "yashasvi@gmail.com",
+      "products": [
+          {
+              "_id": "67b4e52b15cb0dccc2a6d82b",
+              "quantity": 3
+          },
+          {
+              "_id": "67c1ed6a025d45288bdd1de5",
+              "quantity": 3
+          }
+      ],
+      "address": {
+          "street": "123 Main Street",
+          "city": "HYD",
+          "state": "TS",
+          "zip": "10002",
+          "country": "IND"
+      }
+  }
+  
+}
