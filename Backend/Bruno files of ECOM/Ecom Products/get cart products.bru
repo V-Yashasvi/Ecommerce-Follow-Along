@@ -5,7 +5,11 @@ meta {
 }
 
 get {
-  url: http://localhost:8084/product/cart/678debb13848c4af8fd4df4e
+  url: http://localhost:8084/cart/products
   body: none
-  auth: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2N2I1YjllZTAyZWNiNjdiMjI2MTZkYWYiLCJlbWFpbCI6Illhc2hhc2h2aTEyM0BnbWFpbC5jb20iLCJpYXQiOjE3NDA0ODE2MTF9.r41tNIFQs2PoMBrd-K5yLU_KQga2L_Z3b-_HYUU_KeU
 }

@@ -1,11 +1,10 @@
 const express= require('express')
-const {UserModel}=require('../module/user.module')
+const {UserModel}=require('../model/user.model')
 const authenticate = require('../middleware/authenticate');
 let userRouter=express.Router();
 const multer=require('multer')
 
-userRouter.get("/", authenticate, async (req, res) => {
-    console.log("21")
+userRouter.get("/profile", authenticate, async (req, res) => {
     try {
         const user = await UserModel.findById(req.body.id);
         if (!user) {
@@ -17,15 +16,26 @@ userRouter.get("/", authenticate, async (req, res) => {
     }
 });
 
+userRouter.post("/add-address", authenticate, async (req, res) => {
+    try {
+        const { country, city, address1, address2, zipCode, addressType } = req.body;
+        const user = await UserModel.findById(req.body.id);
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+        user.addresses.push({ country, city, address1, address2, zipCode, addressType });
+        await user.save()
+        res.status(201).json({ message: "Address added successfully", user });
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).json({ message: "Something went wrong" });
+    }
+});
+
 userRouter.patch("/update/address", authenticate,async(req,res)=>{
     try {
-        // console.log(req.body.addresses,"JJ")
         const {country,city,address1,address2,zipCode,addressType}=req.body;
-        // const payload = {addresses:{country,city,address1,address2,zipCode,addressType}};
-        // console.log(payload,"payload", req.body.id)
-        
         const user=await UserModel.findById(req.body.id);
-        // payload=[...user.addresses,]
         const payload={addresses:[...user.addresses,{country,city,address1,address2,zipCode,addressType}]} 
         if(!user){
             res.status(404).json({"message":"User not found"})
@@ -50,7 +60,6 @@ const storage=multer.diskStorage({
 
 const upload=multer({storage:storage});
 userRouter.post("/upload",upload.single("myFile"),(req,res)=>{
-    console.log("22")
     try{
         console.log(req.file)
         res.send({"message":"file uploaded sucessfully"});
@@ -61,7 +70,6 @@ userRouter.post("/upload",upload.single("myFile"),(req,res)=>{
 })
 
 userRouter.post('/create',async(req,res)=>{
-    console.log("23")
     let payload=req.body
     console.log(payload)
     try{
