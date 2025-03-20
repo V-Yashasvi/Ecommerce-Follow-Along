@@ -15,12 +15,15 @@ const Cart = () => {
         alert("Login first");
         navigate("/login");
       }
-      const res = await axios.get("http://localhost:8084/cart/products", {
-        headers: {
-          authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await axios.get(
+        "https://ecommerce-follow-along-mz95.onrender.com/cart/products",
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
       console.log(res,"Hj")
       console.log(res.data);
       setCartItems(res.data.cart);
@@ -40,7 +43,7 @@ const Cart = () => {
   const handleIncrease = async (cartItemId) => {
     try {
       await axios.put(
-        `http://localhost:8084/cart/increase/${cartItemId}`,
+        `https://ecommerce-follow-along-mz95.onrender.com/cart/increase/${cartItemId}`,
         {},
         {
           headers: { authorization: `Bearer ${localStorage.getItem("Token")}` },
@@ -55,7 +58,7 @@ const Cart = () => {
   const handleDecrease = async (cartItemId) => {
     try {
       await axios.put(
-        `http://localhost:8084/cart/decrease/${cartItemId}`,
+        `https://ecommerce-follow-along-mz95.onrender.com/cart/decrease/${cartItemId}`,
         {},
         {
           headers: { authorization: `Bearer ${localStorage.getItem("Token")}` },

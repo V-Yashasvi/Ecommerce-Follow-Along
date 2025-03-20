@@ -34,15 +34,14 @@ const SignUp = () => {
         alert("Please enter a valid password in the range of 8-16");
         return;
       }
-
-      fetch("http://localhost:8084/signup", {
+      fetch("https://ecommerce-follow-along-mz95.onrender.com/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       })
         .then(async (res) => {
           console.log("Response:", res);
-          return res.json(); 
+          return res.json();
         })
         .then((data) => {
           console.log("Json Response:", data);

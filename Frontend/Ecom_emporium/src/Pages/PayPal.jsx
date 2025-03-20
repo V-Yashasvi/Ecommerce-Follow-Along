@@ -15,12 +15,15 @@ const PayPalCheckout = () => {
 
   const fetchCartTotal = async () => {
     try {
-      const res = await axios.get("http://localhost:8084/cart/products", {
-        headers: {
-          authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await axios.get(
+        "https://ecommerce-follow-along-mz95.onrender.com/cart/products",
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const total = res.data.cart.reduce(
         (sum, item) => sum + item.totalPrice,
         0
@@ -39,7 +42,7 @@ const PayPalCheckout = () => {
       };
 
       const response = await axios.post(
-        "http://localhost:8084/orders/paypal",
+        "https://ecommerce-follow-along-mz95.onrender.com/orders/paypal",
         orderData,
         {
           headers: {

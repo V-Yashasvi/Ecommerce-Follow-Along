@@ -12,18 +12,21 @@ const Home = () => {
   // let email=useSelector((state)=>state.user.email)
 
   useEffect(()=>{
-    fetch("http://localhost:8084/product").then((res)=>res.json()).then((res)=>{
-      console.log(res)
-      if(res.message=="Login Pls"){
-        alert("Login first")
-        navigate('/login')
-      }
-      setProductData(res.data)
-      setLoading(false);
-    }).catch((err)=>{
-      console.log(err)
-      setLoading(false); 
-    })
+    fetch("https://ecommerce-follow-along-mz95.onrender.com/product")
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        if (res.message == "Login Pls") {
+          alert("Login first");
+          navigate("/login");
+        }
+        setProductData(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
   },[])
 
   const handleDelete = async (id) => {
@@ -39,7 +42,7 @@ const Home = () => {
     if (!confirmDelete) return;
     try {
       let response = await axios.delete(
-        `http://localhost:8084/product/delete/${id}`
+        `https://ecommerce-follow-along-mz95.onrender.com/product/delete/${id}`
       );
       console.log(response.data.message);
       const filtered_data = productData.filter((e) => e._id !== id);

@@ -16,25 +16,28 @@ const Profile = () => {
         alert("Login first")
         navigate("/login"); 
       }
-        fetch("http://localhost:8084/user/profile", {
-            method: "GET",
-            headers: {
-                authorization: `Bearer ${localStorage.getItem("Token")}`,
-                "Content-Type": "application/json",
-            },
-            })
-            .then((res) => res.json())
-            .then((res) => {
-                console.log(res)
-                setForm({
-                    name: res.user.name,
-                    email: res.user.email,
-                    addresses: res.user.addresses || "No address found",
-                });
-            })
-            .catch((err) => {
-                console.log(err);
+      fetch(
+        "https://ecommerce-follow-along-mz95.onrender.com/user/profile",
+        {
+          method: "GET",
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("Token")}`,
+            "Content-Type": "application/json",
+          },
+        }
+      )
+          .then((res) => res.json())
+          .then((res) => {
+            console.log(res);
+            setForm({
+              name: res.user.name,
+              email: res.user.email,
+              addresses: res.user.addresses || "No address found",
             });
+          })
+          .catch((err) => {
+            console.log(err);
+          });
     },[]);
     console.log(form)
     return (

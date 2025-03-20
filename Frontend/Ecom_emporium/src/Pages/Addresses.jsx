@@ -14,7 +14,7 @@ const Addresses = () => {
       return;
     }
 
-    fetch("http://localhost:8084/user/profile", {
+    fetch("https://ecommerce-follow-along-mz95.onrender.com/user/profile", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,

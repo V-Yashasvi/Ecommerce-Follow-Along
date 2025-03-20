@@ -15,13 +15,16 @@ function Orders() {
         alert("Login first");
         navigate("/login");
       }
-      const response = await fetch("http://localhost:8084/orders", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await fetch(
+        "https://ecommerce-follow-along-mz95.onrender.com/orders",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       if (response.message == "Login Pls") {
         alert("Login first");
         navigate("/login");
@@ -44,11 +47,14 @@ function Orders() {
   }, []);
 
   const handleCancelOrder = (id) => {
-    fetch(`http://localhost:8084/orders/update/${id}`, {
-      method: "PATCH",
-      body: JSON.stringify({ cancelled: true }),
-      headers: { "Content-Type": "application/json" },
-    })
+    fetch(
+      `https://ecommerce-follow-along-mz95.onrender.com/orders/update/${id}`,
+      {
+        method: "PATCH",
+        body: JSON.stringify({ cancelled: true }),
+        headers: { "Content-Type": "application/json" },
+      }
+    )
       .then((res) => res.json())
       .then((res) => {
         console.log(res);

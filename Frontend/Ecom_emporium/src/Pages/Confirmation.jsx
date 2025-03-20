@@ -19,12 +19,15 @@ const Confirmation = () => {
 
     const fetchCartItems = async () => {
         try {
-        const res = await axios.get("http://localhost:8084/cart/products", {
+        const res = await axios.get(
+          "https://ecommerce-follow-along-mz95.onrender.com/cart/products",
+          {
             headers: {
-            authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
+              authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
             },
-        });
+          }
+        );
         setCartItems(res.data.cart);
         // console.log(res.data.cart)
         setEmail(localStorage.getItem('email'))
@@ -40,11 +43,11 @@ const Confirmation = () => {
     const updateQuantity = async (cartItemId, type) => {
         try {
         await axios.put(
-            `http://localhost:8084/cart/${type}/${cartItemId}`,
-            {},
-            {
+          `https://ecommerce-follow-along-mz95.onrender.com/cart/${type}/${cartItemId}`,
+          {},
+          {
             headers: { authorization: `Bearer ${token}` },
-            }
+          }
         );
         fetchCartItems(); 
         } catch (error) {
@@ -75,7 +78,7 @@ const Confirmation = () => {
         return;
     }
 
-    console.log(token,"J")
+    console.log(token,"Token")
 
     const orderData = {
         email,
@@ -94,13 +97,15 @@ const Confirmation = () => {
     console.log("Final Order Data:", orderData);
     if(selectedMethod=="cod"){
         try {
-            const response = await axios.post("http://localhost:8084/orders/place",orderData,
-            {
+            const response = await axios.post(
+                "https://ecommerce-follow-along-mz95.onrender.com/orders/place",
+                orderData,
+                {
                 headers: {
-                authorization: `Bearer ${token}`,
-                "Content-Type": "application/json",
+                    authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json",
                 },
-            }
+                }
             );
         console.log("Order Response:", response);
         if (response.status === 201 || response.data.success) {

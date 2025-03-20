@@ -45,11 +45,14 @@ const ProductForm = () => {
         navigate("/login");
         return 
       }
-      const result = await fetch("http://localhost:8084/product/create", {
-        method: "POST",
-        body: formData,
-        "Content-Type":"application/json"
-      });
+      const result = await fetch(
+        "https://ecommerce-follow-along-mz95.onrender.com/product/create",
+        {
+          method: "POST",
+          body: formData,
+          "Content-Type": "application/json",
+        }
+      );
       if (result.message == "Login Pls") {
         alert("Login first");
         navigate("/login");

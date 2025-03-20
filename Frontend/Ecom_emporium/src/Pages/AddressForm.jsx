@@ -51,14 +51,17 @@ const AddressForm = () => {
         addressType,
       };
       try {
-        const response = await fetch("http://localhost:8084/user/add-address", {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(addressData),
-        })
+        const response = await fetch(
+          "https://ecommerce-follow-along-mz95.onrender.com/user/add-address",
+          {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(addressData),
+          }
+        );
         const data = await response.json();
         if (response.ok) {
           alert("Address added successfully!");

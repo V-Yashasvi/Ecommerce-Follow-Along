@@ -13,7 +13,7 @@ const EditProducts = () => {
     productImage: [],
   });
   useEffect(() => {
-    fetch(`http://localhost:8084/product/${id}`)
+    fetch(`https://ecommerce-follow-along-mz95.onrender.com/product/${id}`)
       .then((res) => res.json())
       .then((res) => {
         if (res.data) {
@@ -21,7 +21,7 @@ const EditProducts = () => {
             productName: res.data.productName || "",
             productDescription: res.data.productDescription || "",
             productPrice: res.data.productPrice || "",
-            productImage: res.data.productImage || [], 
+            productImage: res.data.productImage || [],
           });
         }
       })
@@ -47,9 +47,13 @@ const EditProducts = () => {
       formData.append("productImage[]", image);
     });
     try {
-      await axios.put(`http://localhost:8084/product/update/${id}`, formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
+      await axios.put(
+        `https://ecommerce-follow-along-mz95.onrender.com/product/update/${id}`,
+        formData,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      );
       alert("Product updated successfully!");
       navigate("/");
     } catch (error) {

@@ -35,7 +35,7 @@ const Login = () => {
       alert("Please enter a valid password in the range of 8-16");
       return;
     }
-    fetch("http://localhost:8084/login", {
+    fetch("https://ecommerce-follow-along-mz95.onrender.com/login", {
       method: "POST",
       credentials: "include",
       body: JSON.stringify({ email: form.email, password: form.password }),
@@ -44,7 +44,7 @@ const Login = () => {
       .then((res) => res.json())
       .then((res) => {
         console.log("Login response:", res);
-        if (!res.token=="") {
+        if (!res.token == "") {
           localStorage.setItem("Token", res.token);
           alert("Login Successful!");
           navigate("/");
