@@ -1,8 +1,6 @@
 import RoutesComp from "./Routes";
 
 function App() {
-  
-
   return (
     <>
       <RoutesComp/>

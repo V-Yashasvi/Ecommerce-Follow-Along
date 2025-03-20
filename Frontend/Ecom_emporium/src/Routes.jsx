@@ -11,8 +11,8 @@ import AddressForm from "./pages/AddressForm";
 import Addresses from "./pages/Addresses";
 import MyOrders from "./pages/MyOrders";
 import FirstPage from "./pages/FirstPage";
-import Confirmation from "./pages/Confirmation";
 import PayPal from "./pages/PayPal";
+import Confirmation from "./Pages/Confirmation";
 
 const RoutesComp = () => {
     return (
@@ -28,7 +28,7 @@ const RoutesComp = () => {
         <Route path="/profile" element={<Profile />}></Route>
         <Route path="/add-address" element={<AddressForm />}></Route>
         <Route path="/addresses" element={<Addresses />}></Route>
-        <Route path="/confirmation" element={<Confirmation />}></Route>
+        <Route path="/confirmation" element={<Confirmation/>}></Route>
         <Route path="/orders" element={<MyOrders />}></Route>
         <Route path="/paypal" element={<PayPal />}></Route>
     </Routes>
