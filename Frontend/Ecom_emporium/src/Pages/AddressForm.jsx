@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 
 const AddressForm = () => {
     const navigate=useNavigate()
@@ -46,7 +47,7 @@ const AddressForm = () => {
         city,
         address1,
         address2,
-        zip,
+        zipCode:zip,
         addressType,
       };
       try {
@@ -73,106 +74,88 @@ const AddressForm = () => {
 
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-semibold mb-6 text-center">Add Address</h2>
+    <>
+    <Navbar/>
+    <div className="flex justify-center items-center min-h-screen bg-[#F7D1CD]">
+      <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-lg">
+        <h2 className="text-3xl font-bold text-[#735D78] mb-6 text-center">
+          Add Address
+        </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
+
           <div>
-            <label
-              htmlFor="country"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Enter Country
-            </label>
+            <label className="block text-[#735D78] font-medium">Country</label>
             <input
               type="text"
-              placeholder="Enter your Country"
+              name="country"
               value={country}
               onChange={handleCountryChange}
-              id="country"
-              className="mt-1 p-2 w-full border rounded-md"
+              placeholder="Enter your country"
+              className="mt-1 p-2 w-full border border-[#B392AC] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#735D78]"
             />
           </div>
 
           <div>
-            <label
-              htmlFor="city"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Enter City
-            </label>
+            <label className="block text-[#735D78] font-medium">City</label>
             <input
               type="text"
-              placeholder="Enter your City"
+              name="city"
               value={city}
               onChange={handleCityChange}
-              id="city"
-              className="mt-1 p-2 w-full border rounded-md"
+              placeholder="Enter your city"
+              className="mt-1 p-2 w-full border border-[#B392AC] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#735D78]"
             />
           </div>
 
           <div>
-            <label
-              htmlFor="address1"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Enter Address1
+            <label className="block text-[#735D78] font-medium">
+              Address Line 1
             </label>
             <input
               type="text"
-              placeholder="Enter your Address1"
+              name="address1"
               value={address1}
               onChange={handleAddress1Change}
-              id="address1"
-              className="mt-1 p-2 w-full border rounded-md"
+              placeholder="Enter your address"
+              className="mt-1 p-2 w-full border border-[#B392AC] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#735D78]"
             />
           </div>
 
           <div>
-            <label
-              htmlFor="address2"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Enter Address2
+            <label className="block text-[#735D78] font-medium">
+              Address Line 2 (Optional)
             </label>
             <input
               type="text"
-              placeholder="Enter your Address2"
+              name="address2"
               value={address2}
               onChange={handleAddress2Change}
-              id="address2"
-              className="mt-1 p-2 w-full border rounded-md"
+              placeholder="Enter additional address details"
+              className="mt-1 p-2 w-full border border-[#B392AC] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#735D78]"
             />
           </div>
 
           <div>
-            <label
-              htmlFor="zipCode"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Enter ZipCode
-            </label>
+            <label className="block text-[#735D78] font-medium">Zip Code</label>
             <input
               type="number"
-              placeholder="Enter your PIN Code"
+              name="zip"
               value={zip}
               onChange={handleZipCodeChange}
-              id="zipCode"
-              className="mt-1 p-2 w-full border rounded-md"
+              placeholder="Enter your PIN code"
+              className="mt-1 p-2 w-full border border-[#B392AC] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#735D78]"
             />
           </div>
 
           <div>
-            <label
-              htmlFor="addressType"
-              className="block text-sm font-medium text-gray-700"
-            >
+            <label className="block text-[#735D78] font-medium">
               Address Type
             </label>
             <select
+              name="addressType"
               value={addressType}
               onChange={handleAddressTypeChange}
-              className="mt-1 p-2 w-full border rounded-md"
+              className="mt-1 p-2 w-full border border-[#B392AC] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#735D78]"
             >
               <option value="Home">Home</option>
               <option value="Office">Office</option>
@@ -182,14 +165,15 @@ const AddressForm = () => {
           <div>
             <button
               type="submit"
-              className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              className="w-full bg-[#735D78] hover:bg-[#B392AC] text-white font-bold py-2 px-4 rounded-lg transition duration-300"
             >
-              Submit
+              Submit Address
             </button>
           </div>
         </form>
       </div>
     </div>
+    </>
   );
 }
 

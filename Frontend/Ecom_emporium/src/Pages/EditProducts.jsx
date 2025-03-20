@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import Navbar from "../components/Navbar";
 
 const EditProducts = () => {
   const { id } = useParams();
@@ -57,62 +58,68 @@ const EditProducts = () => {
   };
 
   return (
-    <div className="max-w-lg mt-24 mx-auto p-6 bg-blue-200 shadow-lg rounded-lg">
+    <>
+    <Navbar/>
+    <div className="max-w-lg mt-24 mx-auto p-6 bg-[#F7D1CD] shadow-lg rounded-lg">
+      <h2 className="text-2xl font-semibold text-[#735D78] text-center mb-4">
+        Edit Product
+      </h2>
       <form className="space-y-4" onSubmit={handleSubmit}>
-        <label className="block text-sm font-medium text-gray-800">
+        <label className="block text-sm font-medium text-[#735D78]">
           Product Name
         </label>
         <input
           type="text"
           name="productName"
           placeholder="Enter Product Name"
-          className="mt-1 block w-full p-2 border border-gray-300 rounded"
+          className="mt-1 block w-full p-2 border border-[#B392AC] rounded-lg focus:ring-2 focus:ring-[#735D78] outline-none"
           value={product.productName}
           onChange={handleChange}
         />
 
-        <label className="block text-sm font-medium text-gray-800">
+        <label className="block text-sm font-medium text-[#735D78]">
           Product Description
         </label>
         <input
           type="text"
           name="productDescription"
           placeholder="Enter Product Description"
-          className="mt-1 block w-full p-2 border border-gray-300 rounded"
+          className="mt-1 block w-full p-2 border border-[#B392AC] rounded-lg focus:ring-2 focus:ring-[#735D78] outline-none"
           value={product.productDescription}
           onChange={handleChange}
         />
 
-        <label className="block text-sm font-medium text-gray-800">
+        <label className="block text-sm font-medium text-[#735D78]">
           Product Price
         </label>
         <input
           type="text"
           name="productPrice"
           placeholder="Enter Product Price"
-          className="mt-1 block w-full p-2 border border-gray-300 rounded"
+          className="mt-1 block w-full p-2 border border-[#B392AC] rounded-lg focus:ring-2 focus:ring-[#735D78] outline-none"
           value={product.productPrice}
           onChange={handleChange}
         />
 
-        <label className="block text-sm font-medium text-gray-800">
+        <label className="block text-sm font-medium text-[#735D78]">
           Product Images
         </label>
         <input
           type="file"
           multiple
-          className="mt-1 block w-full p-2 border border-gray-400 rounded"
+          className="mt-1 block w-full p-2 border border-[#B392AC] rounded-lg cursor-pointer bg-white shadow-sm"
           onChange={handleImageChange}
         />
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg"
+          className="w-full bg-[#735D78] text-white py-2 px-4 rounded-lg text-lg hover:bg-[#B392AC] transition duration-300 font-semibold"
         >
           Edit Product
         </button>
       </form>
     </div>
+    </>
   );
 };
 

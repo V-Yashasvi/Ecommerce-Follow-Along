@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 const Profile = () => {
   const navigate=useNavigate()
@@ -37,35 +38,43 @@ const Profile = () => {
     },[]);
     console.log(form)
     return (
-      <div className="mt-48 p-6 max-w-lg mx-auto bg-white rounded-xl shadow-md flex flex-col space-y-4">
-        <section className="profile-section text-center">
-          <img
-            src="https://img.freepik.com/premium-vector/avatar-profile-icon-flat-style-female-user-profile-vector-illustration-isolated-background-women-profile-sign-business-concept_157943-38866.jpg?semt=ais_hybrid"
-            alt="Profile Image"
-            className="rounded-full w-32 h-32 mx-auto mb-4"
-          />
-          <h3 className="text-xl font-semibold">Name: {form.name}</h3>
-          <h4 className="text-gray-600">Email: {form.email}</h4>
-        </section>
+      <>
+        <Navbar />
+        <div className="mt-24 p-6 max-w-lg mx-auto bg-[#F7D1CD] rounded-2xl shadow-lg flex flex-col space-y-6">
+          <section className="profile-section text-center">
+            <img
+              src="https://img.freepik.com/premium-vector/avatar-profile-icon-flat-style-female-user-profile-vector-illustration-isolated-background-women-profile-sign-business-concept_157943-38866.jpg?semt=ais_hybrid"
+              alt="Profile Image"
+              className="rounded-full w-32 h-32 mx-auto mb-4 border-4 border-[#735D78]"
+            />
+            <h3 className="text-2xl font-semibold text-[#735D78]">
+              {form.name}
+            </h3>
+            <h4 className="text-[#B392AC]">{form.email}</h4>
+          </section>
 
-        <section className="address-section">
-          <h2 className="text-lg font-semibold mb-2">Addresses</h2>
-          {form.addresses ? (
-            form.addresses.map((address, idx) => (
-              <h3 key={idx} className="text-gray-800 mb-1">
-                Address {idx + 1}: {address.city}
-              </h3>
-            ))
-          ) : (
-            <p className="text-gray-500">No addresses added.</p>
-          )}
-          <Link to="/add-address" className="mt-4">
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-              Add Address
-            </button>
-          </Link>
-        </section>
-      </div>
+          <section className="address-section bg-[#E8C2CA] p-4 rounded-xl shadow-md">
+            <h2 className="text-lg font-semibold text-[#735D78] mb-2">
+              Addresses
+            </h2>
+            {form.addresses && Array.isArray(form.addresses) ? (
+              form.addresses.map((address, idx) => (
+                <h3 key={idx} className="text-[#735D78] mb-1">
+                  <span className="font-semibold">Address {idx + 1}:</span>{" "}
+                  {address.city}
+                </h3>
+              ))
+            ) : (
+              <p className="text-[#D1B3C4]">No addresses added.</p>
+            )}
+            <Link to="/add-address" className="mt-4 block text-center">
+              <button className="bg-[#735D78] hover:bg-[#B392AC] text-white font-bold py-2 px-4 rounded-lg transition duration-300">
+                Add Address
+              </button>
+            </Link>
+          </section>
+        </div>
+      </>
     );
 };
 

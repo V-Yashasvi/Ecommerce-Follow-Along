@@ -1,19 +1,31 @@
 import { useState, useEffect } from "react";
+import Navbar from "../components/Navbar";
+import { useNavigate } from "react-router-dom";
 
 function Orders() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate=useNavigate()
 
   async function fetchOrders() {
     try {
-      const response = await fetch("http://localhost:8084/orders",{
-        method:"GET",
-        headers:{
-          "Content-Type":"application/json",
-          "Authorization":`Bearer ${localStorage.getItem("Token")}`
-        }
+      const token=localStorage.getItem("Token")
+      if(token==null){
+        alert("Login first");
+        navigate("/login");
+      }
+      const response = await fetch("http://localhost:8084/orders", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
       });
+      if (response.message == "Login Pls") {
+        alert("Login first");
+        navigate("/login");
+      }
       if (!response.ok) {
         throw new Error("Could not fetch orders");
       }
@@ -21,14 +33,15 @@ function Orders() {
       console.log(data);
       setOrders(data);
       setLoading(false);
-    }catch (err) {
+    } catch (err) {
       setError(err.message);
       setLoading(false);
     }
   }
+
   useEffect(() => {
     fetchOrders();
-  }, []); 
+  }, []);
 
   const handleCancelOrder = (id) => {
     fetch(`http://localhost:8084/orders/update/${id}`, {
@@ -39,62 +52,80 @@ function Orders() {
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
-        setOrders(orders.filter((e) => e._id != res._id));
+        setOrders(orders.filter((e) => e._id !== res._id));
         fetchOrders();
       })
       .catch((err) => {
         console.log(err);
       });
   };
+
   if (loading) {
-    return <div className="loading">Loading orders...</div>;
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-[#F7D1CD] text-[#735D78] text-xl">
+        <p className="font-semibold">Loading orders...</p>
+      </div>
+    );
   }
+
   if (error) {
-    return <div className="error">Error: {error}</div>;
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-[#F7D1CD] text-red-600 text-xl">
+        <p className="font-semibold">Error: {error}</p>
+      </div>
+    );
   }
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
-      <h2 className="text-2xl font-semibold mb-4">Orders</h2>
-      {orders.length === 0 ? (
-        <p className="text-gray-500 text-center">No orders found.</p>
-      ) : (
-        <ul className="space-y-4">
-          {orders.map((order) => (
-            <li
-              key={order._id}
-              className="border p-4 rounded-lg flex items-center bg-white shadow-sm"
-            >
-              <div className="flex-grow">
-                <p className="text-lg font-medium">{order.product.productName}</p>
-                <p className="text-gray-700">Quantity: {order.quantity}</p>
-                <p className="text-gray-500 text-sm">
-                  Address:{" "}
-                  {order.address
-                    ? `${order.address.street}, ${order.address.city}, ${order.address.state}, ${order.address.zip}`
-                    : "No address provided"}
-                </p>
-              </div>
-              <img
-                src={order.product.productImage}
-                alt={order.product.productName}
-                className="w-20 h-20 object-cover ml-4 rounded-md"
-              />
-              {!order.cancelled ? (
-                <button
-                  onClick={() => handleCancelOrder(order._id)}
-                  className="ml-4 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg"
-                >
-                  Cancel Order
-                </button>
-              ) : (
-                <span className="ml-4 text-gray-400">Cancelled</span>
-              )}
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+    <>
+      <Navbar />
+      <div className="w-full px-4 sm:px-8 py-8 bg-[#F7D1CD]">
+        <h2 className="text-4xl font-bold text-[#735D78] mb-8 text-center">
+          Your Orders
+        </h2>
+        {orders.length === 0 ? (
+          <p className="text-gray-700 text-center text-xl">
+            No orders found. Start shopping now!
+          </p>
+        ) : (
+          <ul className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {orders.map((order) => (
+              <li
+                key={order._id}
+                className="border p-6 rounded-2xl flex flex-col bg-[#E8C2CA] shadow-md transition transform hover:scale-105"
+              >
+                <div className="flex-grow">
+                  <p className="text-xl font-semibold text-[#735D78]">
+                    {order?.product?.productName}
+                  </p>
+                  <p className="text-gray-800 text-lg">
+                    Quantity: {order.quantity}
+                  </p>
+                  <p className="text-gray-600 text-sm">
+                    Address:{" "}
+                    {order.address
+                      ? `${order.address.street}, ${order.address.city}, ${order.address.state}, ${order.address.zip}`
+                      : "No address provided"}
+                  </p>
+                </div>
+                {!order.cancelled ? (
+                  <button
+                    onClick={() => handleCancelOrder(order._id)}
+                    className="mt-4 bg-[#B392AC] hover:bg-[#735D78] text-white px-6 py-3 rounded-xl transition text-lg font-medium shadow-md"
+                  >
+                    Cancel Order
+                  </button>
+                ) : (
+                  <span className="mt-4 text-[#735D78] font-medium text-lg">
+                    Cancelled
+                  </span>
+                )}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </>
   );
 }
 
