@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 const Addresses = () => {
   const navigate=useNavigate()
@@ -35,48 +36,61 @@ const Addresses = () => {
       return;
     }
     console.log("Selected Address:", selectedAddress);
-    alert(selectedAddress.country, selectedAddress.city)
+    alert(`Country: ${selectedAddress.country}, City: ${selectedAddress.city}`);
     navigate("/confirmation", { state: { selectedAddress } });
   };
 
   return (
-    <div className="mt-60">
-      <div className="border border-gray-300 p-4 rounded-lg shadow-md max-w-md mx-auto ">
-        <h1 className="text-xl font-semibold mb-4">Select Address</h1>
-        {addresses.length === 0 ? (
-          <div>
-            <p className="text-gray-600">No addresses found.</p>
-            <button>Add Address</button>
-          </div>
-        ) : (
-          addresses.map((address, index) => (
-            <div
-              key={index + 1}
-              className="flex items-center gap-2 p-2 border rounded-md mb-2"
-            >
-              <input
-                type="radio"
-                name="selectedAddress"
-                value={index + 1}
-                checked={selectedAddress === address}
-                onChange={() => setSelectedAddress(address)}
-                className="w-5 h-5 accent-blue-600"
-              />
-              <span className="text-gray-700">
-                {address.addressType}, {address.address1}, {address.address2},{" "}
-                {address.city}, {address.zip}, {address.country}
-              </span>
+    <>
+      <Navbar />
+      <div className="flex justify-center items-center min-h-screen bg-[#F7D1CD]">
+        <div className="border border-gray-300 p-6 bg-white rounded-lg shadow-lg max-w-lg w-full">
+          <h1 className="text-2xl font-bold text-[#735D78] mb-6">
+            Select Address
+          </h1>
+          {addresses.length === 0 ? (
+            <div className="text-center">
+              <p className="text-gray-600 mb-4">No addresses found.</p>
+              <button
+                onClick={() => navigate("/add-address")}
+                className="bg-[#735D78] hover:bg-[#B392AC] text-white font-semibold py-2 px-6 rounded-lg transition"
+              >
+                Add Address
+              </button>
             </div>
-          ))
-        )}
-        <button
-          onClick={handleProceed}
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md mt-4 transition duration-300"
-        >
-          Proceed
-        </button>
+          ) : (
+            addresses.map((address, index) => (
+              <label
+                key={index}
+                className="flex items-center gap-3 p-3 border border-gray-300 rounded-md cursor-pointer mb-3 hover:shadow-md transition"
+              >
+                <input
+                  type="radio"
+                  name="selectedAddress"
+                  value={index}
+                  checked={selectedAddress === address}
+                  onChange={() => setSelectedAddress(address)}
+                  className="w-5 h-5 accent-[#B392AC]"
+                />
+                <span className="text-gray-700">
+                  <strong>{address.addressType}</strong>, {address.address1},{" "}
+                  {address.address2}, {address.city}, {address.zip},{" "}
+                  {address.country}
+                </span>
+              </label>
+            ))
+          )}
+          {addresses.length > 0 && (
+            <button
+              onClick={handleProceed}
+              className="w-full bg-[#735D78] hover:bg-[#B392AC] text-white font-semibold py-2 px-4 rounded-lg shadow-md mt-4 transition"
+            >
+              Proceed
+            </button>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import Navbar from '../components/Navbar'
 
 const ProductDetailsPage = () => {
     const {id}=useParams()
@@ -18,45 +19,54 @@ const ProductDetailsPage = () => {
     },[id])
 
     const handleAddToCart=()=>{
-        fetch('http://localhost:8084/cart/add',{
-            method:"POST",
-            body:JSON.stringify({productId:product._id, quantity:quantity}),
-            headers:{"Content-Type":"application/json",
-                "authorization":`Bearer ${localStorage.getItem("Token")}`
-            }
-        })
-        .then((res)=>res.json())
-        .then((res)=>{
-            console.log(res);
-            alert("Product Added to cart")
-            navigate('/')
-        }).catch(err=>{
-            console.log(err);
-        })
+      const token=localStorage.getItem("Token")
+      if(token==null){
+        alert("Login first")
+        navigate('/login')
+        return
+      }
+      fetch('http://localhost:8084/cart/add',{
+          method:"POST",
+          body:JSON.stringify({productId:product._id, quantity:quantity}),
+          headers:{"Content-Type":"application/json",
+              "authorization":`Bearer ${token}`
+          }
+      })
+      .then((res)=>res.json())
+      .then((res)=>{
+          console.log(res);
+          alert("Product Added to cart")
+          navigate('/')
+      }).catch(err=>{
+          console.log(err);
+      })
     }
 
     if(!product) return <p>Loading...</p>
 
 
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 px-4 py-8">
-        <div className="bg-white shadow-lg rounded-lg p-6 max-w-2xl w-full">
-          <h1 className="text-3xl font-semibold text-gray-800 mb-4 ">
+      <>
+      <Navbar/>
+      <div className="flex flex-col items-center justify-center min-h-screen bg-[#F7D1CD] px-4 py-8">
+        <div className="bg-white shadow-lg rounded-2xl p-8 max-w-2xl w-full">
+          <h1 className="text-3xl font-bold text-[#735D78] mb-4 text-center">
             {product.productName}
           </h1>
           <img
             src={`http://localhost:8084/uploads/${product.productImage}`}
             alt={product.productName}
-            className="w-full h-80 object-cover rounded-md mb-4"
+            className="w-full h-80 object-cover rounded-xl mb-4 shadow-md"
           />
-          <p className="text-gray-700 text-lg  overflow-auto">
+          <p className="text-[#735D78] text-lg text-justify">
             {product.productDescription}
           </p>
-          <p className="text-xl font-semibold text-green-600 mt-4">
-            Price: ${product.productPrice}
+          <p className="text-2xl font-bold text-[#735D78] mt-4">
+            Price:{" "}
+            <span className="text-[#B392AC]">${product.productPrice}</span>
           </p>
           <div className="mt-6">
-            <label className="block text-gray-700 font-medium mb-2">
+            <label className="block text-[#735D78] font-medium mb-2">
               Quantity:
             </label>
             <input
@@ -64,17 +74,18 @@ const ProductDetailsPage = () => {
               value={quantity}
               onChange={(e) => setQuantity(parseInt(e.target.value))}
               min="1"
-              className="border border-gray-300 p-2 w-20 text-center rounded-md "
+              className="border border-[#B392AC] p-2 w-20 text-center rounded-lg focus:ring-2 focus:ring-[#735D78] outline-none"
             />
           </div>
           <button
             onClick={handleAddToCart}
-            className="mt-6 bg-blue-500 text-white px-6 py-2 rounded-md text-lg hover:bg-blue-600 transition"
+            className="mt-6 bg-[#735D78] text-white px-6 py-2 rounded-lg text-lg hover:bg-[#B392AC] transition duration-300 w-full font-semibold"
           >
             Add to Cart
           </button>
         </div>
       </div>
+      </>
     );
 }
 

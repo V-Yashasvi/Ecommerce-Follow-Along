@@ -1,4 +1,4 @@
-import SignUp from './SignUp'
+import SignUp from './SignUp.jsx'
 
 const FirstPage = () => {
   return (
