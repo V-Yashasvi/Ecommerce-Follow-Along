@@ -6,13 +6,13 @@ import ProductForm from "./pages/ProductForm";
 import EditProducts from "./pages/EditProducts";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import Cart from "./pages/Cart";
-import Profile from "./pages/Profile";
 import AddressForm from "./pages/AddressForm";
 import Addresses from "./pages/Addresses";
 import MyOrders from "./pages/MyOrders";
 import FirstPage from "./pages/FirstPage";
 import PayPal from "./pages/PayPal";
 import Confirmation from "./Pages/Confirmation";
+import Profile from "./Pages/Profile";
 
 const RoutesComp = () => {
     return (
