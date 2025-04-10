@@ -77,7 +77,7 @@ The E-Commerce Application is a full-stack web application designed to facilitat
 ### Milestone 16 Update:
 - Added new page to display each product.
 - Added quantity and add to card button.
-- 
+
 ### Milestone 17 Update:
 - Edited the user schema to store cart products .
 - Added an end point to receive the product details and store in database.
@@ -135,3 +135,24 @@ The E-Commerce Application is a full-stack web application designed to facilitat
 - Added a cancel order button in my-orders page
 - Created an endpoint that will receive the order-id
 - Got the order using user id and marked the status cancelled and saved
+
+### Milestone 29 Update:
+- Added two options for payment(cod and online payment) in confirmation page
+- Redirect to payment page when clicked on online and orders page when clicked on cod
+  
+### Milestone 30 Update:
+- Implement online payment using paypal
+  
+### Milestone 31 Update:
+- Use redux for global state management
+  
+### Milestone 32 Update:
+- Use Dispatch method to store the mail inside global state for login page
+ 
+### Milestone 33 Update:
+- Create jwt token
+- Store the token in a cookie
+  
+### Milestone 34 Update:
+- Extract the token from cookie
+- Validate the jwt token recieved from cookie
